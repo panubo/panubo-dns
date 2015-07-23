@@ -2,8 +2,8 @@
 
 This is a web based DNS zone editor written in Django. It relies upon the following components for the heavy lifting:
 
-- [Volt Grid DNS Manager](https://github.com/voltgrid/django-dnsmanager) - Django DNS Zone Editor
-- [Squab](https://github.com/panubo/python-squab) - CouchDB bindings
+- [Django DNS Manager](https://github.com/voltgrid/django-dnsmanager) - Django DNS Zone Editor
+- [Squab](https://github.com/panubo/python-squab) - CouchDB bindings for Python Applications
 - [CouchDB](http://couchdb.apache.org/) is used as a realtime transport for replicating zone changes to disparate DNS slaves.
 
 ## Local Install
