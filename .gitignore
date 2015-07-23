@@ -1,0 +1,10 @@
+.env*
+!.env.example
+*.pyc
+.Python
+bin
+include
+lib
+src
+.idea
+pip-selfcheck.json
