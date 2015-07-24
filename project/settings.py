@@ -108,4 +108,4 @@ COUCH_DATABASES = {
         'HOST': os.environ.setdefault('COUCH_DNS_HOST', 'http://127.0.0.1:5984'),
     }
 }
-COUCH_IGNORE_MISSING = DEBUG
+COUCH_IGNORE_MISSING = True
