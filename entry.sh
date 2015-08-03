@@ -2,6 +2,11 @@
 
 set -ex
 
+# App Defaults
+export WORKERS=${WORKERS-4}
+export LOGFILE=${LOGFILE-/srv/log/web.log}
+export PORT=${PORT-8000}
+
 # alias docker links variables
 
 # COUCHDB SERVICE
