@@ -75,7 +75,7 @@ from dj_database_url import config as db_config
 DATABASES = {'default': db_config(default='sqlite://localhost//%s' % os.path.join(BASE_DIR, 'db', 'project.sqlite3'))}
 TIME_ZONE = os.environ.setdefault('TIME_ZONE', "Australia/Sydney")
 EMAIL_HOST = os.environ.setdefault('EMAIL_HOST', 'localhost')
-EMAIL_PORT = 25
+EMAIL_PORT = os.environ.setdefault(int('EMAIL_PORT'), 25)
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
@@ -102,10 +102,10 @@ DNS_MANAGER_ZONE_ADMIN_FILTER = ('domain__organisation', )
 # CouchDB Config
 COUCH_DATABASES = {
     'dns': {
-        'NAME': os.environ.setdefault('COUCH_DNS_NAME', 'dns'),
-        'USER': os.environ.setdefault('COUCH_DNS_USER', 'admin'),
-        'PASS': os.environ.setdefault('COUCH_DNS_PASS', 'admin'),
-        'HOST': os.environ.setdefault('COUCH_DNS_HOST', 'http://127.0.0.1:5984'),
+        'NAME': os.environ.setdefault('COUCHDB_DNS_NAME', 'dns'),
+        'USER': os.environ.setdefault('COUCHDB_DNS_USER', 'admin'),
+        'PASS': os.environ.setdefault('COUCHDB_DNS_PASS', 'admin'),
+        'HOST': os.environ.setdefault('COUCHDB_DNS_HOST', 'http://127.0.0.1:5984'),
     }
 }
 COUCH_IGNORE_MISSING = True
