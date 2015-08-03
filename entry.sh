@@ -15,4 +15,5 @@ export EMAIL_PORT="${SMTP_PORT_25_TCP_PORT}"
 # MYSQL SERVICE
 export DATABASE_URL="mysql://${DB_USER}:${DB_PASS}@${MARIADB_PORT_3306_TCP_ADDR}:${MARIADB_PORT_3306_TCP_PORT}/${DB_NAME}"
 
+echo "Exec'ing $@"
 exec "$@"
