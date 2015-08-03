@@ -1,7 +1,7 @@
 # App
 Django
-git+git@github.com:voltgrid/django-dnsmanager.git#egg=dnsmanager
-git+git@github.com:panubo/python-squab.git#egg=squab
+git+https://github.com/voltgrid/django-dnsmanager.git#egg=dnsmanager
+git+https://github.com/panubo/python-squab.git#egg=squab
 # Deployment
 bureaucrat
 dj-database-url==0.3.0
