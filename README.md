@@ -31,3 +31,7 @@ Optionally: Add the following to _bin/activate_:
     OLDIFS=$IFS; IFS=$'\n'; for l in $(cat $VIRTUAL_ENV/.env); do eval export echo $l; done; IFS=$OLDIFS
     
 This will automatically load the _.env_ settings when entering the virtual environment. Which makes it easier to manually run _./manage.py_.
+
+## Docker Install
+
+Build the `Dockerfile` or pull the [container](https://quay.io/repository/panubo/panubo-dns).
