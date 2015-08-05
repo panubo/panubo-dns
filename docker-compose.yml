@@ -1,0 +1,48 @@
+#
+# Config for DNS Manager
+#
+
+web:
+  build: ./
+  ports:
+    - 8000
+  environment:
+    - SECRET_KEY=secret
+    - DB_USER=root
+    - DB_PASS=root
+    - DB_NAME=dns
+    - DEBUG=true
+  links:
+    - mariadb
+    - couchdb
+    - smtp
+
+mariadb:
+  image: mariadb:10.0
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+
+couchdb:
+  image: panubo/couchdb
+  environment:
+   - COUCHDB_DATABASE=dns
+   - COUCHDB_USER=dns
+   - COUCHDB_PASS=dns
+
+smtp:
+  image: panubo/postfix
+  environment:
+   - MAILNAME=test
+
+bind:
+  image: quay.io/panubo/bind
+  ports:
+    - 953
+
+integration:
+  image: quay.io/panubo/dns-integration
+  ports:
+    - 953
+  links:
+    - couchdb
+    - bind
