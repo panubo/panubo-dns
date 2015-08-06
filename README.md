@@ -6,7 +6,9 @@ This is a web based DNS zone editor written in Django. It relies upon the follow
 
 - [Django DNS Manager](https://github.com/voltgrid/django-dnsmanager) - Django DNS Zone Editor
 - [Squab](https://github.com/panubo/python-squab) - CouchDB bindings for Python Applications
-- [CouchDB](http://couchdb.apache.org/) is used as a realtime transport for replicating zone changes to disparate DNS slaves.
+- [CouchDB](http://couchdb.apache.org/) is used as a transport for replicating zone changes to disparate DNS slaves.
+
+Integration with Bind is handled with [Panubo DNS Integration](https://github.com/panubo/panubo-dns-integration).
 
 ## Local Install
 
