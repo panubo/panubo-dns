@@ -1,5 +1,7 @@
 # DNS Management UI
 
+[![Docker Repository on Quay.io](https://quay.io/repository/panubo/panubo-dns/status "Docker Repository on Quay.io")](https://quay.io/repository/panubo/panubo-dns)
+
 This is a web based DNS zone editor written in Django. It relies upon the following components for the heavy lifting:
 
 - [Django DNS Manager](https://github.com/voltgrid/django-dnsmanager) - Django DNS Zone Editor
