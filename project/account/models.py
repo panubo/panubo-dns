@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from dnsmanager.models import validate_hostname_string
 
 
 class Organisation(models.Model):
@@ -35,3 +36,6 @@ class Domain(models.Model):
 
     def __unicode__(self):
         return "%s" % self.name
+
+    def clean(self):
+        validate_hostname_string(self.name)
