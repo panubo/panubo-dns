@@ -96,10 +96,15 @@ except KeyError:
     print("Warning: settings.SECRET_KEY is not set!")
     pass
 
+from dnsmanager.defaults import DNS_MANAGER_RECIPES_DEFAULT
+DNS_MANAGER_RECIPES = DNS_MANAGER_RECIPES_DEFAULT + (
+    ('project.dns_manager_recipes.VoltGridEmail', 'Set Volt Grid MX'),
+    ('project.dns_manager_recipes.VoltGridNameServers', 'Set Volt Grid NS'),
+    ('project.dns_manager_recipes.CromovaNameServers', 'Set CroMoVa NS'),
+    ('project.dns_manager_recipes.PanuboNameServers', 'Set Panubo NS'),
+)
 DNS_MANAGER_DOMAIN_MODEL = 'project.account.Domain'
-
 DNS_MANAGER_ZONE_ADMIN_FILTER = ('domain__organisation', )
-
 
 # CouchDB Config
 COUCH_DATABASES = {
