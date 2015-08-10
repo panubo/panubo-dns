@@ -8,7 +8,7 @@ This is a web based DNS zone editor written in Django. It relies upon the follow
 - [Squab](https://github.com/panubo/python-squab) - CouchDB bindings for Python Applications
 - [CouchDB](http://couchdb.apache.org/) is used as a transport for replicating zone changes to disparate DNS slaves.
 
-Integration with Bind is handled with [Panubo DNS Integration](https://github.com/panubo/panubo-dns-integration).
+Integration with Unbound DNS is handled with [Panubo DNS Integration](https://github.com/panubo/panubo-dns-integration).
 
 ## Local Install
 
@@ -34,7 +34,8 @@ Optionally: Add the following to _bin/activate_:
 
     OLDIFS=$IFS; IFS=$'\n'; for l in $(cat $VIRTUAL_ENV/.env); do eval export echo $l; done; IFS=$OLDIFS
     
-This will automatically load the _.env_ settings when entering the virtual environment. Which makes it easier to manually run _./manage.py_.
+This will automatically load the _.env_ settings when entering the virtual environment. 
+Which makes it easier to manually run _./manage.py_.
 
 ## Docker Install
 
