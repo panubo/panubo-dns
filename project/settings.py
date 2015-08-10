@@ -86,6 +86,8 @@ MANAGERS = ADMINS
 
 DEBUG = bool(os.environ.get('DEBUG', 'False').lower() in ("true", "yes", "t", "1"))
 TEMPLATE_DEBUG = DEBUG
+if os.environ.get('DEBUG_EMAIL', False):
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Loading SECRET_KEY from .env variable
 try:
