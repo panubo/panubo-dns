@@ -23,6 +23,7 @@ class OrganisationListFilter(admin.SimpleListFilter):
     parameter_name = 'organisation__id__exact'
 
     def lookups(self, request, model_admin):
+        # TODO: Add different filtering for super users
         my_orgs = set([m.organisation for m in Membership.objects.filter(user=request.user)])
         return [(m.pk, m.name) for m in my_orgs]
 
