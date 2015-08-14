@@ -8,7 +8,7 @@ class VoltGridEmail(MxRecipe):
 
 
 class VoltGridNameServers(NameServerRecipe):
-    data = ('ns1.voltgrid.com.', 'ns2.voltgrid.com.')
+    data = ('ns1.voltgrid.com.', 'ns2.voltgrid.com.', 'ns3.voltgrid.com.')
 
 
 class CromovaNameServers(NameServerRecipe):
@@ -16,4 +16,4 @@ class CromovaNameServers(NameServerRecipe):
 
 
 class PanuboNameServers(NameServerRecipe):
-    data = ('ns1.panubo.net.', 'ns2.panubo.net.')
+    data = ('ns1.panubo.net.', 'ns2.panubo.net.', 'ns3.panubo.net.')
