@@ -39,3 +39,7 @@ class Domain(models.Model):
 
     def clean(self):
         validate_hostname_string(self.name)
+
+    @property
+    def owner_src(self):
+        return self.organisation
