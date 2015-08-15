@@ -1,5 +1,6 @@
 # App
 Django
+djangorestframework==3.2.2
 git+https://github.com/voltgrid/django-dnsmanager.git#egg=dnsmanager
 git+https://github.com/panubo/python-squab.git#egg=squab
 # Deployment

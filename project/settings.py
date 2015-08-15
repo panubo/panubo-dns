@@ -27,6 +27,7 @@ INSTALLED_APPS = (
 
     'reversion',
     'dnsmanager',
+    'rest_framework',
 
     'project.account',
     'project.couch',
@@ -116,3 +117,11 @@ COUCH_DATABASES = {
     }
 }
 COUCH_IGNORE_MISSING = True
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'PAGINATE_BY': 100
+}

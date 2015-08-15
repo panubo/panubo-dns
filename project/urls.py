@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/password_reset/$', 'django.contrib.auth.views.password_reset', name='admin_password_reset'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^api/', include('project.api.urls')),
     url(r'^zone/', include('dnsmanager.urls')),
 )
