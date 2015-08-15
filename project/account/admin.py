@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from .models import Domain, Organisation, Membership
-
 from dnsmanager.models import Zone
 from dnsmanager.admin import ZoneAdmin as ZoneAdminSuper
+
+from .models import Domain, Organisation, Membership
+from .filters import filter_domain_queryset, filter_organisation_queryset, filter_zone_queryset
 
 
 class DomainInline(admin.TabularInline):
@@ -53,16 +54,12 @@ class DomainAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         """ Limit results to qs """
         qs = super(DomainAdmin, self).get_queryset(request)
-        if request.user.is_superuser:
-            return qs
-        return qs.filter(organisation__pk__in=request.user.organisations.values_list('organisation_id', flat=True))
+        return filter_domain_queryset(qs, request)
 
     def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
         """ Limit choices for 'organisation' field """
         if db_field.name == 'organisation':
-            if not request.user.is_superuser:
-                kwargs["queryset"] = Organisation.objects.filter(
-                    pk__in=request.user.organisations.values_list('organisation_id', flat=True))
+            kwargs["queryset"] = filter_organisation_queryset(Organisation.objects.all(), request)
         return super(DomainAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 
@@ -88,13 +85,10 @@ class ZoneAdmin(ZoneAdminSuper):
     def get_queryset(self, request):
         """ Limit results to qs """
         qs = super(ZoneAdmin, self).get_queryset(request)
-        if request.user.is_superuser:
-            return qs
-        return qs.filter(domain__organisation_id__in=request.user.organisations.values_list('organisation_id', flat=True))
+        return filter_zone_queryset(qs, request)
 
     def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
         """ Limit choices for 'domain' field """
         if db_field.name == 'domain':
-            if not request.user.is_superuser:
-                kwargs["queryset"] = Domain.objects.filter(organisation_id__in=request.user.organisations.values_list('organisation_id', flat=True))
+            kwargs["queryset"] = filter_domain_queryset(Domain.objects.all(), request)
         return super(ZoneAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
