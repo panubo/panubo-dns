@@ -2,7 +2,7 @@ FROM panubo/python-bureaucrat
 
 COPY . /srv/git
 
-RUN /srv/ve27/bin/pip uninstall -y wheel && /srv/ve27/bin/pip install -r /srv/git/requirements.txt
+RUN /srv/ve27/bin/pip install -r /srv/git/requirements.txt
 
 ENTRYPOINT ["/srv/git/entry.sh"]
 
