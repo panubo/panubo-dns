@@ -10,6 +10,13 @@ This is a web based DNS zone editor written in Django. It relies upon the follow
 
 Integration with Unbound DNS is handled with [Panubo DNS Integration](https://github.com/panubo/panubo-dns-integration).
 
+## Features
+
+- API
+- Bind compatible zone file import (via API)
+- Automatic Validation / Delegation Checking
+- Delegate access to sub-organisations or users.
+
 ## Local Install
 
 ### Step 1: Create a virtual environment
