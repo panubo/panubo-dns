@@ -6,7 +6,7 @@ from dnsmanager.models import validate_hostname_string
 
 class Organisation(models.Model):
 
-    name = models.CharField("Organisation Name", unique=True, max_length=32)
+    name = models.CharField("Organisation Name", unique=True, max_length=64)
 
     class Meta:
         ordering = ['name']
