@@ -125,3 +125,6 @@ REST_FRAMEWORK = {
     ),
     'PAGINATE_BY': 100
 }
+
+# Custom attributes
+APP_NAME = 'Panubo DNS'

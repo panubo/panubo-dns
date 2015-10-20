@@ -1,16 +1,16 @@
 from django.conf.urls import patterns, include, url
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import RedirectView
-
-
 from django.contrib import admin
-admin.autodiscover()
 
-admin.site.site_title = 'Panubo DNS'
-admin.site.site_header = 'Panubo DNS'
+from .settings import APP_NAME
+
+admin.autodiscover()
+admin.site.site_title = APP_NAME
+admin.site.site_header = APP_NAME
 admin.site.index_title = 'Administration'
 
-extra_context = {'site_title': 'Panubo DNS', 'site_header': 'Panubo DNS',}
+extra_context = {'site_title': APP_NAME, 'site_header': APP_NAME}
 
 urlpatterns = patterns('',
     url(r'^$', RedirectView.as_view(url=reverse_lazy('admin:login'), permanent=False)),
