@@ -106,18 +106,7 @@ DNS_MANAGER_RECIPES = DNS_MANAGER_RECIPES_DEFAULT + (
 )
 DNS_MANAGER_DOMAIN_MODEL = 'project.account.Domain'
 DNS_MANAGER_ZONE_ADMIN_FILTER = ('domain__organisation', )
-
-DNS_MANAGER_NAMESERVERS = (
-    'ns1.panubo.com.',
-    'ns2.panubo.com.',
-    'ns3.panubo.com.',
-    'ns1.cromova.net.',
-    'ns2.cromova.net.',
-    'ns3.cromova.net.',
-    'ns1.voltgrid.com.',
-    'ns2.voltgrid.com.',
-    'ns3.voltgrid.com.'
-)
+DNS_MANAGER_NAMESERVERS = os.environ.get('DNS_MANAGER_NAMESERVERS', None)
 
 # CouchDB Config
 COUCH_DATABASES = {
