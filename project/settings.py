@@ -138,5 +138,17 @@ REST_FRAMEWORK = {
     'PAGINATE_BY': 100
 }
 
+# Redis cache for DNS MANAGER
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "%s/1" % REDIS_URL,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
 # Custom attributes
 APP_NAME = 'Panubo DNS'
