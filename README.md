@@ -47,3 +47,11 @@ Which makes it easier to manually run _./manage.py_.
 ## Docker Install
 
 Build the `Dockerfile` or pull the [container](https://quay.io/repository/panubo/panubo-dns).
+
+## Zone upload
+
+Example Bind zone file upload to the API
+
+```
+curl -X POST -F "data=@${ZONE_FILE}" https://$USER:$PASS@dns/api/v1/zone-upload/$ZONE_NAME/
+```
