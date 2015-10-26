@@ -138,7 +138,6 @@ COUCH_DATABASES = {
 }
 COUCH_IGNORE_MISSING = True
 
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -160,3 +159,6 @@ CACHES = {
 
 # Custom attributes
 APP_NAME = 'Panubo DNS'
+
+# Django Sites
+SITE_ID = 1
