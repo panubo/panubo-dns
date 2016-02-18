@@ -1,4 +1,4 @@
-FROM panubo/python-bureaucrat
+FROM panubo/python-bureaucrat:2.7
 
 # Install requirements first so this can be cached
 COPY requirements.txt /srv/git/
