@@ -10,7 +10,7 @@ mysqlclient
 bureaucrat
 dj-database-url==0.3.0
 dj-static==0.0.6
-gunicorn==19.4.5
+gunicorn==19.6.0
 
 # hack (force quay.io to install correct version in container)
 django-reversion==1.9.3
