@@ -19,3 +19,11 @@ def filter_zone_queryset(qs, request):
     if user.is_superuser:
         return qs
     return qs.filter(domain__organisation_id__in=user.organisations.values_list('organisation_id', flat=True))
+
+
+# filter for addressrecordset etc
+def filter_zonerecord_queryset(qs, request):
+    user = request.user
+    if user.is_superuser:
+        return qs
+    return qs.filter(zone__domain__organisation_id__in=user.organisations.values_list('organisation_id', flat=True))
