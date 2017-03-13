@@ -1,11 +1,5 @@
 """
 Django settings for project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -101,11 +95,11 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
 ADMINS = ()
 for admin in os.environ.get('ADMINS', '').split():
-    ADMINS = ADMINS + (tuple(admin.split('/')),)
+    ADMINS += (tuple(admin.split('/')),)
 MANAGERS = ADMINS
 
 DEBUG = bool(os.environ.get('DEBUG', 'False').lower() in ("true", "yes", "t", "1"))
-TEMPLATE_DEBUG = DEBUG
+
 if os.environ.get('DEBUG_EMAIL', False):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -114,7 +108,7 @@ try:
     SECRET_KEY = os.environ['SECRET_KEY']
 except KeyError:
     print("Warning: settings.SECRET_KEY is not set!")
-    pass
+    raise
 
 from dnsmanager.defaults import DNS_MANAGER_RECIPES_DEFAULT
 DNS_MANAGER_RECIPES = DNS_MANAGER_RECIPES_DEFAULT + (
@@ -146,16 +140,16 @@ REST_FRAMEWORK = {
 }
 
 # Redis cache for DNS MANAGER
-REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "%s/1" % REDIS_URL,
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+if os.environ.get('REDIS_URL', False):
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": "%s/1" % os.environ.get('REDIS_URL', 'redis://localhost:6379'),
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            }
         }
     }
-}
 
 # Custom attributes
 APP_NAME = 'Panubo DNS'
