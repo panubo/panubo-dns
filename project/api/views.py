@@ -26,7 +26,7 @@ class ZoneViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         self.serializer_class = ZoneDetailSerializer
-        return super(ZoneViewSet, self).list(request, *args, **kwargs)
+        return super(ZoneViewSet, self).retrieve(request, *args, **kwargs)
 
 
 class AddressRecordViewSet(viewsets.ModelViewSet):
