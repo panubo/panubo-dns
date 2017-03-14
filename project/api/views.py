@@ -31,7 +31,7 @@ class ZoneViewSet(viewsets.ModelViewSet):
 
 class AddressRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = AddressRecordSerializer
 
     def get_queryset(self):
@@ -40,7 +40,7 @@ class AddressRecordViewSet(viewsets.ModelViewSet):
 
 class CanonicalNameRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = CanonicalNameRecordSerializer
 
     def get_queryset(self):
@@ -49,7 +49,7 @@ class CanonicalNameRecordViewSet(viewsets.ModelViewSet):
 
 class MailExchangeRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = MailExchangeRecordSerializer
 
     def get_queryset(self):
@@ -58,7 +58,7 @@ class MailExchangeRecordViewSet(viewsets.ModelViewSet):
 
 class NameServerRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = NameServerRecordSerializer
 
     def get_queryset(self):
@@ -67,7 +67,7 @@ class NameServerRecordViewSet(viewsets.ModelViewSet):
 
 class TextRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = TextRecordSerializer
 
     def get_queryset(self):
@@ -76,7 +76,7 @@ class TextRecordViewSet(viewsets.ModelViewSet):
 
 class ServiceRecordViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [ReadOnlyPermissions, SuperUserOnlyPermissions]
+    permission_classes = [SuperUserOnlyPermissions]
     serializer_class = ServiceRecordSerializer
 
     def get_queryset(self):

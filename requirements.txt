@@ -1,6 +1,6 @@
 # App
 Django==1.8.17
-djangorestframework==3.2.2
+djangorestframework==3.6.2
 git+https://github.com/voltgrid/django-dnsmanager.git#egg=dnsmanager
 git+https://github.com/panubo/python-squab.git#egg=squab
 django-redis==4.2.0
@@ -11,6 +11,3 @@ bureaucrat
 dj-database-url==0.3.0
 dj-static==0.0.6
 gunicorn==19.6.0
-
-# hack (force quay.io to install correct version in container)
-django-reversion==1.9.3

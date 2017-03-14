@@ -8,37 +8,93 @@ from ..account.models import Domain
 
 class AddressRecordSerializer(serializers.ModelSerializer):
 
+    domain = serializers.CharField(source='zone.domain')
+
     class Meta:
-        fields = ('id','data', 'ip', 'ttl')
+        fields = ('id','data', 'ip', 'ttl', 'domain')
         model = AddressRecord
+
+    def create(self, validated_data):
+        zone = Zone.objects.get(domain__name=validated_data['zone']['domain'])
+        obj = AddressRecord(zone=zone,
+                                  data=validated_data['data'],
+                                  ip=validated_data['ip'],
+                                  ttl=validated_data['ttl'])
+        obj.save()
+        return obj
 
 
 class CanonicalNameRecordSerializer(serializers.ModelSerializer):
 
+    domain = serializers.CharField(source='zone.domain')
+
     class Meta:
-        fields = ('id','data', 'target', 'ttl')
+        fields = ('id','data', 'target', 'ttl', 'domain')
         model = CanonicalNameRecord
+
+    def create(self, validated_data):
+        zone = Zone.objects.get(domain__name=validated_data['zone']['domain'])
+        obj = CanonicalNameRecord(zone=zone,
+                                  data=validated_data['data'],
+                                  target=validated_data['target'],
+                                  ttl=validated_data['ttl'])
+        obj.save()
+        return obj
 
 
 class MailExchangeRecordSerializer(serializers.ModelSerializer):
 
+    domain = serializers.CharField(source='zone.domain')
+
     class Meta:
-        fields = ('id','data', 'priority', 'origin', 'ttl')
+        fields = ('id','data', 'priority', 'origin', 'ttl', 'domain')
         model = MailExchangeRecord
+
+    def create(self, validated_data):
+        zone = Zone.objects.get(domain__name=validated_data['zone']['domain'])
+        obj = MailExchangeRecord(zone=zone,
+                                 data=validated_data['data'],
+                                 priority=validated_data['priority'],
+                                 origin=validated_data['origin'],
+                                 ttl=validated_data['ttl'])
+        obj.save()
+        return obj
 
 
 class NameServerRecordSerializer(serializers.ModelSerializer):
 
+    domain = serializers.CharField(source='zone.domain')
+
     class Meta:
-        fields = ('id','data', 'origin', 'ttl')
+        fields = ('id','data', 'origin', 'ttl', 'domain')
         model = NameServerRecord
+
+    def create(self, validated_data):
+        zone = Zone.objects.get(domain__name=validated_data['zone']['domain'])
+        obj = NameServerRecord(zone=zone,
+                               data=validated_data['data'],
+                               origin=validated_data['origin'],
+                               ttl=validated_data['ttl'])
+        obj.save()
+        return obj
 
 
 class TextRecordSerializer(serializers.ModelSerializer):
 
+    domain = serializers.CharField(source='zone.domain')
+
     class Meta:
-        fields = ('id','data', 'text', 'ttl')
+        fields = ('id','data', 'text', 'ttl', 'domain')
         model = TextRecord
+
+    def create(self, validated_data):
+        zone = Zone.objects.get(domain__name=validated_data['zone']['domain'])
+        obj = TextRecord(zone=zone,
+                         data=validated_data['data'],
+                         text=validated_data['text'],
+                         ttl=validated_data['ttl'])
+        obj.save()
+        return obj
 
 
 class ServiceRecordSerializer(serializers.ModelSerializer):
