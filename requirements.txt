@@ -1,5 +1,5 @@
 # App
-Django==1.8.17
+Django==1.8.19
 djangorestframework==3.6.2
 git+https://github.com/voltgrid/django-dnsmanager.git#egg=dnsmanager
 git+https://github.com/panubo/python-squab.git#egg=squab
