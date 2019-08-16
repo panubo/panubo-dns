@@ -1,6 +1,10 @@
-# DNS Management UI
+# Deprecation Notice!
 
-[![Docker Repository on Quay.io](https://quay.io/repository/panubo/panubo-dns/status "Docker Repository on Quay.io")](https://quay.io/repository/panubo/panubo-dns)
+NB: This project is no longer maintained and the repository has been archived.
+
+---
+
+# DNS Management UI
 
 This is a web based DNS zone editor written in Django. It relies upon the following components for the heavy lifting:
 
